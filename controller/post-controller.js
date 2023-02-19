@@ -8,6 +8,7 @@ export const getPosts = async (request, response) => {
         // finding something inside a model is time taking, so we need to add await
         const Posts = await Post.find().sort({updatedAt : -1});
         response.status(200).json(Posts);
+        console.log(Posts)
     }catch( error ){
         response.status(404).json({ message: error.message })
     }
