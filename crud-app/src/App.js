@@ -5,6 +5,8 @@ import HomePage from './Component/Home';
 import Dashboard from './Component/Dashboard';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import "./App.css";
+import { addPost } from './Service/api';
+import {Navigate} from 'react-router-dom';
 //import "./Component/fontawesome";
 
 function App() {

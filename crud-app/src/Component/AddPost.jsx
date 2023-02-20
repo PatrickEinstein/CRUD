@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { addPost } from '../Service/api';
 import { useHistory } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Rightbar from "./Rightbar";
+import Home from './Home';
 
 const initialValue = {
     title: '',
@@ -11,19 +12,22 @@ const initialValue = {
     description: '',
 }
 
+
+
 const AddPost = () => {
     const [post, setPost] = useState(initialValue);
     const { title, type, description } = post;
-    let history = useHistory();
-
+    
     const onValueChange = (e) => {
         setPost({...post, [e.target.name]: e.target.value})
     }
 
     const addPostDetails = async() => {
         await addPost(post);
+       
     }
 
+    
     return (
         <div className="layout">
             <div className="sidebar">
@@ -37,7 +41,7 @@ const AddPost = () => {
             </div>
             <div className="actionDiv">
                 <div className="Formdiv">
-                    <form onSubmit={() => addPostDetails()} method ='post' action ='./posts'>
+                    <form onSubmit={() => addPostDetails() }>
                         <div className="form-group">
                             <label className="top">Title:</label>
                             <input type="text" name="title" className="form-control highlight" 
@@ -63,7 +67,7 @@ const AddPost = () => {
                             value={description} onChange={(e) => onValueChange(e)} 
                             placeholder="Write the Description" required={true} />
                         </div>
-                        <button type="submit" className="primary">
+                        <button type="submit" className="primary" >
                             <FontAwesomeIcon icon="plus" className="icon"/>
                             Add Post
                         </button>

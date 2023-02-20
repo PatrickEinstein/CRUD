@@ -50,9 +50,9 @@ export const getPostById = async (request, response) => {
 // Save data of edited Post in the database
 export const editPost = async (request, response) => {
     let posts = await Post.findById(request.params.id);
-    post = request.body;
+   const postToEdit = request.body;
 
-    const editPost = new Post(posts);
+    const editPost = new Post(postToEdit);
     try{
         await Post.updateOne({_id: request.params.id}, editPost);
         response.status(200);
