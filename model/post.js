@@ -11,8 +11,9 @@ const userSchema = mongoose.Schema({
 });
 
 autoIncrement.initialize(mongoose.connection);
-userSchema.plugin(autoIncrement.plugin, 'post');
+userSchema.plugin(autoIncrement.plugin, 'Post');
 // we need to turn it into a model
-const postUser = mongoose.model('post', userSchema);
+export const Post = mongoose.model('Post', userSchema);
 
-export default postUser;
+// export default post;
+

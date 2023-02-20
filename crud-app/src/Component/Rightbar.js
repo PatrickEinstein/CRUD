@@ -1,7 +1,7 @@
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-export default function Rigthar(){
+export default function Rigtbar(){
     var greeting = "";
     var dt=new Date();
     var year = dt.getFullYear();

@@ -37,7 +37,7 @@ const AddPost = () => {
             </div>
             <div className="actionDiv">
                 <div className="Formdiv">
-                    <form onSubmit={() => addPostDetails()}>
+                    <form onSubmit={() => addPostDetails()} method ='post' action ='./posts'>
                         <div className="form-group">
                             <label className="top">Title:</label>
                             <input type="text" name="title" className="form-control highlight" 

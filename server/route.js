@@ -4,7 +4,9 @@ import { getPosts, addPost, getPostById, editPost, deletePost } from '../control
 const router = express.Router();
 
 router.get('/', getPosts);
-router.post('/add', addPost);
+
+export const Routes = router.post('/add', addPost);
+
 router.get('/:id', getPostById);
 router.put('/:id', editPost);
 router.delete('/:id', deletePost);

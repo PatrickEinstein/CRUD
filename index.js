@@ -15,12 +15,10 @@ app.use('/posts', Routes);
 
 
 const URL = "mongodb+srv://mongodb:onqJUekXZGHVWB2r@cluster0.i9foyr2.mongodb.net/CRUDDEMO"
-mongoose.connect(URL, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true }).then(() => { 
-
-    app.listen(8080 , () => console.log("Server is running on port 8080"))
+mongoose.connect(URL, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => { 
+   console.log('MongoDB connected successfully');
 }).catch((error) => {
     console.log('Error:', error.message)
-})
-
-// We can do something like this or we can set it directly in the url as well
-// mongoose.set('useFindAndModify', false);
+});
+app.listen(8080 , () => console.log("Server is running on port 8080"))
