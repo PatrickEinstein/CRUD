@@ -1,5 +1,5 @@
 import axios from 'axios';
-const postsUrl = 'http://localhost:8080/posts';
+const postsUrl = 'https://crud-2-zeta.vercel.app/posts';
 
 export const getPosts = async (id) => {
     id = id || '';
