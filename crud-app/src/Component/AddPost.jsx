@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { addPost } from '../Service/api';
-import { useHistory } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Rightbar from "./Rightbar";
-import Home from './Home';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 const initialValue = {
     title: '',
@@ -19,13 +18,15 @@ const AddPost = () => {
     const { title, type, description } = post;
     
     const onValueChange = (e) => {
-        setPost({...post, [e.target.name]: e.target.value})
+       const { name, value}= e.target;
+        setPost({...post, [name]: value})
     }
 
     const addPostDetails = async() => {
         await addPost(post);
        
     }
+
 
     
     return (
